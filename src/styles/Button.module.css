@@ -1,0 +1,38 @@
+.Button {
+  font-size: 1rem;
+  align-self: center;
+  border-radius: 100px;
+  border-color: transparent;
+  padding: 4px 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+  min-width: 75px;
+  background-color: #E90D35;
+}
+
+.Button:hover {
+  opacity: 0.8;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.Button:hover:active {
+  background-color: #E90D35 !important;
+}
+
+.Button:active {
+  background-color: #E90D35 !important;
+}
+
+.Button:focus {
+  background-color: #E90D35;
+}
+
+.WideButton {
+  width: 100%;
+}
+
+.ColorChange:hover {
+  background-color: #F8879B;
+  color: black;
+}

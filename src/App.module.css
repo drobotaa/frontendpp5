@@ -1,20 +1,59 @@
 .App {
-    font-family: "Lato", sans-serif;
-    background-color: azure;
-    min-height: 100vh;
+  font-family: "Lato", sans-serif;
+  background-color: azure;
+  min-height: 100vh;
+}
+
+.Main {
+  padding-top: 75px;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a {
+  color: black;
+  transition: color ease-in-out 0.3s;
 }
 
 a:hover {
-    color: black;
-    font-size: large;
-    transition: all ease-in-out 0.3s;
+  text-decoration: none;
 }
 
-i:hover{
-    color: black;
-    transition: color ease-in-out 0.3s;
+a:hover i {
+  color: #e90d35;
+  transition: color ease-in-out 0.3s;
+}
+
+i {
+  color: black;
+  font-size: 1.6rem;
+  padding: 7px;
+  vertical-align: middle;
+}
+
+i:hover {
+  cursor: pointer;
+  transition: color ease-in-out 0.3s;
+  color: #e90d35;
+}
+
+figure {
+  text-align: center;
+  display: inline-block;
+}
+
+/* scrollbar */
+*::-webkit-scrollbar {
+  width: 6px;
+}
+*::-webkit-scrollbar-track {
+  background: azure;
+}
+*::-webkit-scrollbar-thumb {
+  background: #888;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #E90D35;
 }
