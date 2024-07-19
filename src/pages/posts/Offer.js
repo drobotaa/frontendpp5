@@ -81,7 +81,7 @@ const Offer = (props) => {
                 {description && <Card.Text className='text-center'>{description}</Card.Text>}
                 <div className={styles.PostBar}>
                     {is_owner ? (
-                        <OverlayTrigger placement='top' overlay={<Tooltip>You can`t like your own offer!</Tooltip>}>
+                        <OverlayTrigger placement='top' overlay={<Tooltip>You can`t validate your own offer!</Tooltip>}>
                             <i className='fa-solid fa-check' />
                         </OverlayTrigger>
                     ) : valid_id ? (
