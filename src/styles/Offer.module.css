@@ -1,0 +1,17 @@
+.Offer {
+    background-color: #ffffff;
+    border: 1px solid #dadadf;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+.Offer figure,
+  h5 {
+    margin: 0 0;
+  }
+
+
+.ValidGlow {
+    color: #e90d35
+}
