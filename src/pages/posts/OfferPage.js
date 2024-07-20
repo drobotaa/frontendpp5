@@ -11,6 +11,9 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Offer from "./Offer";
 import Comment from "../comments/Comment";
+import InfiniteScroll from "react-infinite-scroll-component";
+import ResourceA from "../../components/ResourceA";
+import { fetchMoreData } from "../../utilities.js/utilities";
 
 function OfferPage() {
 
@@ -56,13 +59,20 @@ function OfferPage() {
             "Comments"
           ) : null}
           {comments.results.length ? (
-            comments.results.map(comment => (
-              <Comment
-                key={comment.id}
-                {...comment}
-                setPost={setPost}
-                setComments={setComments} />
-            ))
+            <InfiniteScroll 
+              children={comments.results.map(comment => (
+                <Comment
+                  key={comment.id}
+                  {...comment}
+                  setPost={setPost}
+                  setComments={setComments} />
+              ))}
+              dataLength={comments.results.length}
+              loader={<ResourceA spinner />}
+              hasMore={!!comments.next}
+              next={() => fetchMoreData(comments, setComments)}
+            />
+            
           ) : currentUser ? (
             <span>No comments, be the first!</span>
           ) : (
