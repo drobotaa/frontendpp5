@@ -27,7 +27,7 @@ function App() {
             filter= {`owner__followed__owner__profile=${profile_id}&`} /> } />
           <Route exact path="/valid" render={() => <OffersPage
             message='No offers found! Adjust your search or validate an Offer!'
-            filter={`validplus__owner__profile=${profile_id}&ordering=-validplus__created_at&`} /> } />
+            filter={`valid__owner__profile=${profile_id}&ordering=-valid__created_at&`} /> } />
           <Route exact path='/signin' render={() => <SignInForm />} />
           <Route exact path='/signup' render={() => <SignUpForm />} />
           <Route exact path='/posts/create' render={() => <PostCreateForm />} />

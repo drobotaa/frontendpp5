@@ -11,6 +11,7 @@ import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Offer from "./Offer";
 import ResourceA from "../../components/ResourceA";
+import NoResults from '../../assets/noresults.png'
 
 function OffersPage({ message, filter = "" }) {
     const [posts, setPosts] = useState({ results: [] });
@@ -20,7 +21,7 @@ function OffersPage({ message, filter = "" }) {
     useEffect(() => {
         const fetchOffers = async () => {
             try {
-                const {data} = await axiosReq.get(`/posts/?${filter}`)
+                const { data } = await axiosReq.get(`/posts/?${filter}`)
                 setPosts(data);
                 setIsReady(true);
             } catch (err) {
@@ -39,20 +40,22 @@ function OffersPage({ message, filter = "" }) {
                 <p>Popular profiles mobile</p>
                 {isReady ? (
                     <>
-                    {posts.results.length ? (
-                      posts.results.map(post => (
-                        <Offer key={post.id} {...post} setPosts={setPosts}/>
-                      ))  
-                    ) : (
-                        <Container className={appStyles.Content}>
-                            <ResourceA spinner/>
-                        </Container>
-                    )}
+                        {posts.results.length ? (
+                            posts.results.map(post => (
+                                <Offer key={post.id} {...post} setPosts={setPosts} />
+                            ))
+                        ) : (
+                            <Container className={appStyles.Content}>
+                                <ResourceA src={NoResults} message={message} />
+                            </Container>
+                        )}
                     </>
                 ) : (
-                    console.log('show spinner')
+                    <Container className={appStyles.Content}>
+                        <ResourceA spinner />
+                    </Container>
                 )
-            }
+                }
             </Col>
             <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
                 <p>Popular profiles for desktop</p>

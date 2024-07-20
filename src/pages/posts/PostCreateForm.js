@@ -23,9 +23,10 @@ function PostCreateForm() {
   const [postData, setPostData] = useState({
     title: '',
     description: '',
-    image: ''
+    category: '',
+    image: '',
   })
-  const { title, description, image } = postData;
+  const { title, description, image, category } = postData;
 
   const imageFile = useRef(null);
   const history = useHistory();
@@ -97,6 +98,29 @@ function PostCreateForm() {
           </Alert>
         ))}
       </Form.Group>
+      <Form.Group>
+        <Form.Label>Offer Category</Form.Label>
+        <Form.Control
+          as="select"
+          name="category"
+          value={category}
+          onChange={handleChange}
+          className="text-center"
+        >
+          <option value="">--Please choose an option--</option>
+          <option value="clothing">Clothing</option>
+          <option value="housekeeping">Housekeeping</option>
+          <option value="food">Food</option>
+          <option value="electronics">Electronics</option>
+          <option value="services">Services</option>
+          <option value="tourism">Tourism</option>
+        </Form.Control>
+        {errors.category?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
+      </Form.Group>
 
 
 
@@ -152,10 +176,10 @@ function PostCreateForm() {
               />
             </Form.Group>
             {errors?.image?.map((message, idx) => (
-          <Alert variant="warning" key={idx}>
-            {message}
-          </Alert>
-        ))}
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
