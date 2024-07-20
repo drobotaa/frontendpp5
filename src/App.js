@@ -9,6 +9,7 @@ import PostCreateForm from './pages/posts/PostCreateForm'
 import OfferPage from './pages/posts/OfferPage'
 import OffersPage from './pages/posts/OffersPage';
 import { useCurrentUser } from './contexts/CurrentUserContext';
+import EditForm from './pages/posts/EditForm';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route exact path='/signup' render={() => <SignUpForm />} />
           <Route exact path='/posts/create' render={() => <PostCreateForm />} />
           <Route exact path='/posts/:id' render={() => <OfferPage />} />
+          <Route exact path='/posts/:id/edit' render={() => <EditForm />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
