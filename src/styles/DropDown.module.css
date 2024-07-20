@@ -1,0 +1,16 @@
+.DropDownElement {
+  display: block ;
+  max-width: 100%;
+  padding: 3px;
+}
+
+.DropDownElement:hover {
+  color: black;
+  background-color: #e90d35;
+}
+
+.Absolute {
+  position: absolute;
+  right: 0;
+  z-index: 99;
+}
