@@ -23,10 +23,10 @@ function PostCreateForm() {
   const [postData, setPostData] = useState({
     title: '',
     description: '',
-    category: '',
+    category_filter: '',
     image: '',
   })
-  const { title, description, image, category } = postData;
+  const { title, description, image, category_filter } = postData;
 
   const imageFile = useRef(null);
   const history = useHistory();
@@ -55,6 +55,7 @@ function PostCreateForm() {
     formData.append('title', title)
     formData.append('description', description)
     formData.append('image', imageFile.current.files[0])
+    formData.append('category_filter', category_filter)
     try {
       const { data } = await axiosReq.post('/posts/', formData)
       history.push(`/posts/${data.id}`)
@@ -102,8 +103,8 @@ function PostCreateForm() {
         <Form.Label>Offer Category</Form.Label>
         <Form.Control
           as="select"
-          name="category"
-          value={category}
+          name="category_filter"
+          value={category_filter}
           onChange={handleChange}
           className="text-center"
         >

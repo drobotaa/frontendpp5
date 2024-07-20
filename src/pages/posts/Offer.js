@@ -21,6 +21,7 @@ const Offer = (props) => {
         title,
         description,
         image,
+        // category_filter,
         updated_at,
         offerPage,
         setPosts,
@@ -79,6 +80,7 @@ const Offer = (props) => {
             <Card.Body>
                 {title && <Card.Title className='text-center'>{title}</Card.Title>}
                 {description && <Card.Text className='text-center'>{description}</Card.Text>}
+                {/* {category_filter && <Card.Text className='text-center'>{category_filter}</Card.Text>} */}
                 <div className={styles.PostBar}>
                     {is_owner ? (
                         <OverlayTrigger placement='top' overlay={<Tooltip>You can`t validate your own offer!</Tooltip>}>
