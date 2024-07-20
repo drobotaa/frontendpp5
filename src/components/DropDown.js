@@ -26,12 +26,12 @@ export const DropDown = ({handleEdit, handleDelete}) => {
                     className={styles.DropDownElement}
                     onClick={handleEdit}
                     aria-label="edit"
-                ><i className='fa-solid fa-pen-to-square' /> Edit your offer</Dropdown.Item>
+                ><i className='fa-solid fa-pen-to-square' /> Edit</Dropdown.Item>
                 <Dropdown.Item
                     className={styles.DropDownElement}
                     onClick={handleDelete}
                     aria-label="delete"
-                ><i className='fa-solid fa-trash' /> Delete your offer</Dropdown.Item>
+                ><i className='fa-solid fa-trash' /> Delete</Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
     );
