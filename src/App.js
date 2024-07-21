@@ -11,6 +11,9 @@ import OffersPage from './pages/posts/OffersPage';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import EditForm from './pages/posts/EditForm';
 import ProfilePage from './pages/profiles/ProfilePage';
+import UsernameEditForm from './pages/profiles/UsernameEditForm';
+import UserPasswordEditForm from './pages/profiles/UserPasswordEditForm';
+import ProfileEditForm from './pages/profiles/ProfileEditForm';
 
 
 function App() {
@@ -36,6 +39,9 @@ function App() {
           <Route exact path='/posts/:id' render={() => <OfferPage />} />
           <Route exact path='/posts/:id/edit' render={() => <EditForm />} />
           <Route exact path='/profiles/:id' render={() => <ProfilePage />}/>
+          <Route exact path='/profiles/:id/edit/username' render={() => <UsernameEditForm />} />
+          <Route exact path='/profiles/:id/edit/password' render={() => <UserPasswordEditForm />} />
+          <Route exact path='/profiles/:id/edit' render={() => <ProfileEditForm />}/>
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
