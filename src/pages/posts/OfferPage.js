@@ -14,6 +14,7 @@ import Comment from "../comments/Comment";
 import InfiniteScroll from "react-infinite-scroll-component";
 import ResourceA from "../../components/ResourceA";
 import { fetchMoreData } from "../../utilities.js/utilities";
+import PopularMarketers from "../profiles/PopularMarketers";
 
 function OfferPage() {
 
@@ -44,7 +45,7 @@ function OfferPage() {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Popular profiles for mobile</p>
+        <PopularMarketers mobile />
         <Offer {...post.results[0]} setPosts={setPost} offerPage />
         <Container className={appStyles.Content}>
           {currentUser ? (
@@ -81,7 +82,7 @@ function OfferPage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        Popular profiles for desktop
+        <PopularMarketers />
       </Col>
     </Row>
   );

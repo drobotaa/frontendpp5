@@ -26,10 +26,13 @@ function ProfilePage() {
     const [isReady, setIsReady] = useState(false);
     const currentUser = useCurrentUser();
     const { id } = useParams();
-    const setProfileData = useSetProfileData();
+
+    const {setProfileData, handleFollow, handleUnfollow} = useSetProfileData();
     const { pageProfile } = useProfileData();
+
     const [profile] = pageProfile.results
     const is_owner = currentUser?.username === profile?.owner
+
     const [profilePosts, setProfilePosts] = useState({results: []})
 
     useEffect(() => {
@@ -84,12 +87,12 @@ function ProfilePage() {
                         profile?.following_id ? (
                             <Button
                                 className={`${btnStyles.Button} ${btnStyles.Unfollow}`}
-                                onClick={() => { }}
+                                onClick={() => handleUnfollow(profile)}
                             >Unfollow</Button>
                         ) : (
                             <Button
                                 className={`${btnStyles.Button} ${btnStyles.ColorChange}`}
-                                onClick={() => { }}
+                                onClick={() => handleFollow(profile)}
                             >Follow</Button>
                         )
                     )}
