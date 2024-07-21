@@ -7,7 +7,7 @@
   margin-left: 2px;
   margin-right: 2px;
   min-width: 75px;
-  background-color: #E90D35;
+  background-color: #e90d35;
 }
 
 .Button:hover {
@@ -17,15 +17,15 @@
 }
 
 .Button:hover:active {
-  background-color: #E90D35 !important;
+  background-color: #e90d35 !important;
 }
 
 .Button:active {
-  background-color: #E90D35 !important;
+  background-color: #e90d35 !important;
 }
 
 .Button:focus {
-  background-color: #E90D35;
+  background-color: #e90d35;
 }
 
 .WideButton {
@@ -33,6 +33,16 @@
 }
 
 .ColorChange:hover {
-  background-color: #F8879B;
+  background-color: #f8879b;
+  color: black;
+}
+
+.Unfollow {
+  color: white;
+  background-color: black;
+}
+
+.Unfollow:hover {
+  background-color: #f8879b;
   color: black;
 }

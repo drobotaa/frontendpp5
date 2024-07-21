@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap'
 import { axiosReq } from '../../api/axiosDefaults';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import ResourceA from '../../components/ResourceA';
+import Profile from './Profile';
 
 const PopularMarketers = ({ mobile }) => {
 
@@ -40,13 +41,13 @@ const PopularMarketers = ({ mobile }) => {
                         <p>Most followed Marketers</p>
                         {mobile ? (
                             <div className='d-flex justify-content-around'>
-                                {popularProfiles.results.slice(0,4).map(profile => (
-                                    <p key={profile.id}>{profile.owner}</p>
+                                {popularProfiles.results.slice(0, 4).map(profile => (
+                                    <Profile key={profile.id} profile={profile} mobile/>
                                 ))}
                             </div>
                         ) : (
                             popularProfiles.results.map(profile => (
-                                <p key={profile.id}>{profile.owner}</p>
+                                <Profile key={profile.id} profile={profile}/>
                             ))
                         )}
                     </>) : (
