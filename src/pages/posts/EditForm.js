@@ -5,11 +5,12 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Image from 'react-bootstrap/Image'
+import Alert from "react-bootstrap/Alert";
 
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import { Image, Alert } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -39,7 +40,7 @@ function EditForm() {
 
                 is_owner ? setPostData({ title, description, image, category_filter }) : history.push('/')
             } catch (err) {
-                console.log(err)
+                // console.log(err)
             }
         }
 
@@ -77,7 +78,7 @@ function EditForm() {
             await axiosReq.put(`/posts/${id}/`, formData)
             history.push(`/posts/${id}`)
         } catch (err) {
-            console.log(err)
+            // console.log(err)
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data)
             }

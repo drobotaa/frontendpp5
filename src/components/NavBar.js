@@ -1,5 +1,7 @@
-import React  from 'react'
-import { Container, Navbar, Nav } from 'react-bootstrap'
+import React from 'react'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from "react-bootstrap/Navbar"
+import Container from 'react-bootstrap/Container'
 import styles from '../styles/NavBar.module.css'
 import logo from '../assets/logo_resized.png'
 import { NavLink } from 'react-router-dom'
@@ -21,7 +23,7 @@ const NavBar = () => {
             setCurrentUser(null);
             removeTokenTimeStamp();
         } catch (err) {
-            console.log(err)
+            // console.log(err)
         }
     }
 

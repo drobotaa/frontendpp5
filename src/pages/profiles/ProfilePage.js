@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
+import Image from 'react-bootstrap/Image'
 
 
 import styles from "../../styles/ProfilePage.module.css";
@@ -15,7 +17,6 @@ import ResourceA from "../../components/ResourceA";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
-import { Button, Image } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Offer from "../posts/Offer";
 import { fetchMoreData } from "../../utilities.js/utilities";
@@ -28,18 +29,18 @@ function ProfilePage() {
     const currentUser = useCurrentUser();
     const { id } = useParams();
 
-    const {setProfileData, handleFollow, handleUnfollow} = useSetProfileData();
+    const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
     const { pageProfile } = useProfileData();
 
     const [profile] = pageProfile.results
     const is_owner = currentUser?.username === profile?.owner
 
-    const [profilePosts, setProfilePosts] = useState({results: []})
+    const [profilePosts, setProfilePosts] = useState({ results: [] })
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [{ data: pageProfile }, {data: profilePosts}] = await Promise.all([
+                const [{ data: pageProfile }, { data: profilePosts }] = await Promise.all([
                     axiosReq.get(`/profiles/${id}/`),
                     axiosReq.get(`/posts/?owner__profile=${id}`)
                 ])
@@ -50,7 +51,7 @@ function ProfilePage() {
                 setProfilePosts(profilePosts);
                 setIsReady(true)
             } catch (err) {
-                console.log(err)
+                // console.log(err)
             }
         }
         fetchData();
@@ -110,7 +111,7 @@ function ProfilePage() {
             <p className="text-center">{profile?.owner}'s offers</p>
             <hr />
             {profilePosts.results.length ? (
-                <InfiniteScroll 
+                <InfiniteScroll
                     children={profilePosts.results.map((post) => (
                         <Offer key={post.id} {...post} setPosts={setProfileData} />
                     ))}
@@ -120,10 +121,10 @@ function ProfilePage() {
                     next={() => fetchMoreData(profilePosts, setProfilePosts)}
                 />
             ) : (
-                <ResourceA 
+                <ResourceA
                     src={NoResults}
                     message={`No offers found, ${profile?.owner} has no offers yet.`}
-                    />
+                />
             )}
         </>
     );

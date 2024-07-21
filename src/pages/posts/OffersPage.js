@@ -15,8 +15,10 @@ import NoResults from '../../assets/noresults.png'
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utilities.js/utilities";
 import PopularMarketers from "../profiles/PopularMarketers";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function OffersPage({ message, filter = "" }) {
+    const currentUser = useCurrentUser();
     const [posts, setPosts] = useState({ results: [] });
     const [isReady, setIsReady] = useState(false);
     const { pathname } = useLocation();
@@ -32,7 +34,7 @@ function OffersPage({ message, filter = "" }) {
                 setPosts(data);
                 setIsReady(true);
             } catch (err) {
-                console.log(err)
+                // console.log(err)
             }
         }
 
@@ -43,7 +45,7 @@ function OffersPage({ message, filter = "" }) {
         return () => {
             clearTimeout(timer)
         }
-    }, [pathname, filter, query])
+    }, [pathname, filter, query, currentUser])
 
 
     return (

@@ -2,7 +2,10 @@ import React from 'react'
 import styles from '../../styles/Offer.module.css'
 import { useCurrentUser } from '../../contexts/CurrentUserContext'
 import UserAvatar from '../../components/UserAvatar'
-import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import Tooltip from 'react-bootstrap/Tooltip'
+import Card from 'react-bootstrap/Card'
+import Media from 'react-bootstrap/Media'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import { axiosRes } from '../../api/axiosDefaults'
 import { DropDown } from '../../components/DropDown'
@@ -39,11 +42,11 @@ const Offer = (props) => {
     }
 
     const handleDelete = async () => {
-        try{
+        try {
             await axiosRes.delete(`/posts/${id}`)
             history.goBack()
         } catch (err) {
-            console.log(err)
+            // console.log(err)
         }
     }
 
@@ -59,7 +62,7 @@ const Offer = (props) => {
                 })
             }))
         } catch (err) {
-            console.log(err)
+            // console.log(err)
         }
     }
 
@@ -75,7 +78,7 @@ const Offer = (props) => {
                 }),
             }));
         } catch (err) {
-            console.log(err)
+            // console.log(err)
         }
     }
 
@@ -89,13 +92,13 @@ const Offer = (props) => {
                     </Link>
                     <div className='d-flex align-items-center'>
                         <span>{updated_at}</span>
-                        {is_owner && offerPage && <DropDown handleEdit={handleEdit} handleDelete={handleDelete}/>}
+                        {is_owner && offerPage && <DropDown handleEdit={handleEdit} handleDelete={handleDelete} />}
                     </div>
                 </Media>
             </Card.Body>
             <Link to={`/posts/${id}`}>
-            <Card.Img src={image} alt={title} />
-            </Link> 
+                <Card.Img src={image} alt={title} />
+            </Link>
             <Card.Body>
                 {title && <Card.Title className='text-center'>{title}</Card.Title>}
                 {description && <Card.Text className='text-center'>{description}</Card.Text>}
