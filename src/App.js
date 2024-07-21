@@ -14,6 +14,7 @@ import ProfilePage from './pages/profiles/ProfilePage';
 import UsernameEditForm from './pages/profiles/UsernameEditForm';
 import UserPasswordEditForm from './pages/profiles/UserPasswordEditForm';
 import ProfileEditForm from './pages/profiles/ProfileEditForm';
+import NotFound from './components/NotFound';
 
 
 function App() {
@@ -42,7 +43,7 @@ function App() {
           <Route exact path='/profiles/:id/edit/username' render={() => <UsernameEditForm />} />
           <Route exact path='/profiles/:id/edit/password' render={() => <UserPasswordEditForm />} />
           <Route exact path='/profiles/:id/edit' render={() => <ProfileEditForm />}/>
-          <Route render={() => <p>Page not found!</p>} />
+          <Route render={() => <NotFound />} />
         </Switch>
       </Container>
     </div>
