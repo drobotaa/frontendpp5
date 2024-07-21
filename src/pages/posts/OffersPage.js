@@ -14,6 +14,7 @@ import ResourceA from "../../components/ResourceA";
 import NoResults from '../../assets/noresults.png'
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utilities.js/utilities";
+import PopularMarketers from "../profiles/PopularMarketers";
 
 function OffersPage({ message, filter = "" }) {
     const [posts, setPosts] = useState({ results: [] });
@@ -90,7 +91,7 @@ function OffersPage({ message, filter = "" }) {
                 }
             </Col>
             <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-                <p>Popular profiles for desktop</p>
+                <PopularMarketers />
             </Col>
         </Row>
     );
